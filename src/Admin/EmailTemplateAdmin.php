@@ -31,6 +31,28 @@ class EmailTemplateAdmin extends AbstractAdmin
         $formMapper
             ->add('name', TextType::class,
                 array("label"=>"Template Name", 'attr' => ['maxlength' => 30, 'style' => 'width:50%']))
+            ->add('senderName', TextType::class,
+                array("label"=>"Sender Name", "required"=>false, 'attr' => ['maxlength' => 100, 'style' => 'width: 75%']))
+            ->add('sendEmail', TextType::class,
+                array("label"=>"Sender Email", "required"=>false, 'attr' => ['maxlength' => 150, 'style' => 'width:75%']))
+            ->add('recipientEmail', TextType::class,
+                array("label"=>"Recipient Email", "required"=>false, 'attr' => ['maxlength' => 255, 'style' => 'width:75%']))
+            ->add('replayTo', TextType::class,
+                array("label"=>"Replay T0","required"=>false, 'attr' => ['maxlength' => 255, 'style' => 'width:75%']))
+            ->add('cc', TextType::class,
+                array("label"=>"CC","required"=>false, 'attr' => ['maxlength' => 255, 'style' => 'width:75%']))
+            ->add('bcc', TextType::class,
+                array("label"=>"BCC","required"=>false, 'attr' => ['maxlength' => 255, 'style' => 'width:75%']))
+            ->add('subject', TextType::class,
+                array("label"=>"Email Subject","required"=>false, 'attr' => ['maxlength' => 255]))
+            ->add('comments', TextType::class,
+                array("label"=>"Comments","required"=>false, 'attr' => ['maxlength' => 255]))
+            ->add('modifiers', TextareaType::class,
+                array("label"=>"Modifiers", "required"=>false, 'attr' => ['placeholder'=> 'ex: NAME,EMAIL']))
+            ->add('content', TextareaType::class,
+                array("label"=>"Email Body", "required"=>false, 'attr' => ['class' => 'tinymce','placeholder'=> 'HTML format']))
+            ->add('status', CheckboxType::class,
+                array("label"=>"Enable","required"=>false,'attr' => ['style' => 'margin-left: 55px;']))
             ->end();
     }
 

@@ -40,10 +40,49 @@ class EmailTemplate
     private $modifiers;
 
     /**
-     * @ORM\Column(type="boolean", name="is_active",  options={"default" : 0,"comment":"0=inactive,1=active"})
+     * @ORM\Column(type="boolean", name="status",  options={"default" : 0,"comment":"0=inactive,1=active"})
      */
-    private $isActive;
+    private $status;
 
+    /**
+     * @ORM\Column(type="string", name="sender_name", length=100, nullable=true)
+     */
+    private $senderName;
+
+    /**
+     * @ORM\Column(type="string", name="sender_email",  length=150, nullable=true)
+     */
+    private $sendEmail;
+
+    /**
+     * @ORM\Column(type="string", name="recipient_mail", length=255, nullable=true)
+     */
+    private $recipientEmail;
+
+    /**
+     * @ORM\Column(type="string", name="replay_to", length=150, nullable=true)
+     */
+    private $replayTo;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cc;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $bcc;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $subject;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $comments;
     /**
      * @ORM\Column(name ="created_at", type="datetime")
      */
@@ -95,18 +134,6 @@ class EmailTemplate
         return $this;
     }
 
-    public function getIsActive(): ?bool
-    {
-        return $this->isActive;
-    }
-
-    public function setIsActive(bool $isActive): self
-    {
-        $this->isActive = $isActive;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -148,6 +175,114 @@ class EmailTemplate
     public function onPreUpdate()
     {
         $this->updatedAt = new \DateTime("now");
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getSenderName(): ?string
+    {
+        return $this->senderName;
+    }
+
+    public function setSenderName(?string $senderName): self
+    {
+        $this->senderName = $senderName;
+
+        return $this;
+    }
+
+    public function getSendEmail(): ?string
+    {
+        return $this->sendEmail;
+    }
+
+    public function setSendEmail(?string $sendEmail): self
+    {
+        $this->sendEmail = $sendEmail;
+
+        return $this;
+    }
+
+    public function getRecipientEmail(): ?string
+    {
+        return $this->recipientEmail;
+    }
+
+    public function setRecipientEmail(?string $recipientEmail): self
+    {
+        $this->recipientEmail = $recipientEmail;
+
+        return $this;
+    }
+
+    public function getReplayTo(): ?string
+    {
+        return $this->replayTo;
+    }
+
+    public function setReplayTo(?string $replayTo): self
+    {
+        $this->replayTo = $replayTo;
+
+        return $this;
+    }
+
+    public function getCc(): ?string
+    {
+        return $this->cc;
+    }
+
+    public function setCc(?string $cc): self
+    {
+        $this->cc = $cc;
+
+        return $this;
+    }
+
+    public function getBcc(): ?string
+    {
+        return $this->bcc;
+    }
+
+    public function setBcc(?string $bcc): self
+    {
+        $this->bcc = $bcc;
+
+        return $this;
+    }
+
+    public function getSubject(): ?string
+    {
+        return $this->subject;
+    }
+
+    public function setSubject(?string $subject): self
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    public function getComments(): ?string
+    {
+        return $this->comments;
+    }
+
+    public function setComments(?string $comments): self
+    {
+        $this->comments = $comments;
+
+        return $this;
     }
 
 

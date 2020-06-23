@@ -1,0 +1,23 @@
+#sonata_admin:
+#    title: 'Master Email Template'
+#    dashboard:
+#        blocks:
+#            - { type: sonata.admin.block.admin_list, position: left,class: col-md-6 }
+#            - position: right
+#              type: sonata.block.service.text
+#              settings:
+#                  content: >
+#                      <div style="float:right;font-size: 20px;right: 20px;top: -30px;position: absolute;">
+#                      <a href="/logout">Logout</a>
+#                      <div>
+#    options:
+#        use_icheck: false
+#        legacy_twig_text_extension: false
+#    templates:
+#        edit: 'template/edit.html.twig'
+
+
+sonata_block:
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]

@@ -29,6 +29,6 @@ services:
 
     admin.template:
         class: App\Admin\EmailTemplateAdmin
-        arguments: [~, App\Entity\EmailTemplate, ~]
+        arguments: [~, App\Entity\EmailTemplate, App\Controller\EmailTemplateAdminController, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: EmailTemplate }

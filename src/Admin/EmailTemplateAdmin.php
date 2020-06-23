@@ -50,7 +50,7 @@ class EmailTemplateAdmin extends AbstractAdmin
             ->add('modifiers', TextareaType::class,
                 array("label"=>"Modifiers", "required"=>false, 'attr' => ['placeholder'=> 'ex: NAME,EMAIL']))
             ->add('content', TextareaType::class,
-                array("label"=>"Email Body", "required"=>false, 'attr' => ['class' => 'tinymce','placeholder'=> 'HTML format']))
+                array("label"=>"Email Body", "required"=>false, 'attr' => ['class' => 'tinymce emailBody','placeholder'=> 'HTML format']))
             ->add('status', CheckboxType::class,
                 array("label"=>"Enable","required"=>false,'attr' => ['style' => 'margin-left: 55px;']))
             ->end();

@@ -35,11 +35,6 @@ class EmailTemplate
     private $content;
 
     /**
-     * @ORM\Column(type="text", nullable=true, options={"comment":"List separated with ','"})
-     */
-    private $modifiers;
-
-    /**
      * @ORM\Column(type="boolean", name="status",  options={"default" : 0,"comment":"0=inactive,1=active"})
      */
     private $status;
@@ -118,18 +113,6 @@ class EmailTemplate
     public function setContent(?string $content): self
     {
         $this->content = $content;
-
-        return $this;
-    }
-
-    public function getModifiers(): ?string
-    {
-        return $this->modifiers;
-    }
-
-    public function setModifiers(?string $modifiers): self
-    {
-        $this->modifiers = $modifiers;
 
         return $this;
     }

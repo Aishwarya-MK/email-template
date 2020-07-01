@@ -47,8 +47,6 @@ class EmailTemplateAdmin extends AbstractAdmin
                 array("label"=>"Email Subject","required"=>false, 'attr' => ['maxlength' => 255]))
             ->add('comments', TextType::class,
                 array("label"=>"Comments","required"=>false, 'attr' => ['maxlength' => 255]))
-            ->add('modifiers', TextareaType::class,
-                array("label"=>"Modifiers", "required"=>false, 'attr' => ['placeholder'=> 'ex: NAME,EMAIL']))
             ->add('content', TextareaType::class,
                 array("label"=>"Email Body", "required"=>false, 'attr' => ['class' => 'tinymce emailBody','placeholder'=> 'HTML format']))
             ->add('status', CheckboxType::class,
@@ -58,12 +56,17 @@ class EmailTemplateAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('name');
+        $datagridMapper->add('name')
+                    ->add('subject')
+                    ->add('status');
+
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('name');
+        $listMapper->addIdentifier('subject');
+        $listMapper->addIdentifier('status');
     }
 
     //removed delete functionalities from the admin panel

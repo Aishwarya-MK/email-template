@@ -18,7 +18,6 @@ class UserController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $encoder,ValidatorInterface $validator)
     {
-        var_dump("ffff");die;
         $em = $this->getDoctrine()->getManager();
         $username = $request->get('username');
         $password = $request->get('password');

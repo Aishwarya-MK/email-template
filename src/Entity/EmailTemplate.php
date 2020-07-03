@@ -12,6 +12,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class EmailTemplate
 {
+
+    const IS_ACTIVE =1;
+    const IS_INACTIVE =0;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -47,7 +51,7 @@ class EmailTemplate
     /**
      * @ORM\Column(type="string", name="sender_email",  length=150, nullable=true)
      */
-    private $sendEmail;
+    private $senderEmail;
 
     /**
      * @ORM\Column(type="string", name="recipient_mail", length=255, nullable=true)
@@ -184,14 +188,14 @@ class EmailTemplate
         return $this;
     }
 
-    public function getSendEmail(): ?string
+    public function getSenderEmail(): ?string
     {
-        return $this->sendEmail;
+        return $this->senderEmail;
     }
 
-    public function setSendEmail(?string $sendEmail): self
+    public function setSenderEmail(?string $senderEmail): self
     {
-        $this->sendEmail = $sendEmail;
+        $this->senderEmail = $senderEmail;
 
         return $this;
     }

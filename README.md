@@ -1,4 +1,4 @@
-# pdf-generator
+# Master Email Template
 
 #required software and its version
 APACHE 2.4.37\
@@ -9,9 +9,9 @@ MYSQL 5.7.24
 #SET-UP:
 * Clone the project from git repository 
 
-* Change the working directory to pdf_generator
+* Change the working directory to email_template
 
-* Configure the virtual host for the project directory (pdf_generator)
+* Configure the virtual host for the project directory (email_template)
 
 * Run the command to update the vendor folder\
      composer install
@@ -22,7 +22,7 @@ MYSQL 5.7.24
     
 * Edit .env file to setup database configuration and jwt(add private and public key)
 
-* Create a database called "pdf"
+* Create a database called "master_email_template"
 
 * Run a command to update the db stucture \
     php bin/console  doctrine:schema:update --dump-sql \
@@ -33,12 +33,8 @@ MYSQL 5.7.24
 * Run a command to update the css and js files \
     php bin/console assets:install
     
-* Create a folder pdf  under public/ if not exist
 
-* Create a file called "deletefile.log" under var/log/
     
-* Command to set cron \
-    php bin/console app:dlete-pdf
     
     
 #Required main symfony bundles

@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\EmailTemplate;
 use App\Services\UtilsGeneralHelper;
-use App\Services\UtilsPdfHelper;
 use Sonata\AdminBundle\Controller\CRUDController;
 use Sonata\AdminBundle\Datagrid\ProxyQueryInterface;
 use Symfony\Component\Form\FormInterface;

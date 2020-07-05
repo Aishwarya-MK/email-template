@@ -19,32 +19,38 @@ class EmailTemplateRepository extends ServiceEntityRepository
         parent::__construct($registry, EmailTemplate::class);
     }
 
-    // /**
-    //  * @return EmailTemplate[] Returns an array of EmailTemplate objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return EmailTemplate[]
+     */
+
+    public function getActiveTemplateList($status = EmailTemplate::IS_ACTIVE)
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('t')
+            ->select('t.id,t.name')
+            ->andWhere('t.status = :val')
+            ->setParameter('val', $status)
+            ->orderBy('t.id', 'ASC')
             ->getQuery()
             ->getResult()
-        ;
-    }
-    */
+            ;
 
-    /*
-    public function findOneBySomeField($value): ?EmailTemplate
-    {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
     }
-    */
+
+    /**
+     * @param $id
+     * @return EmailTemplate
+     *
+     */
+    public function getTemplateData($id)
+    {
+        return $this->createQueryBuilder('t')
+            ->select('t.id,t.name,t.status,t.subject,t.content,t.senderName,t.senderEmail,t.recipientEmail,t.replayTo,t.cc,t.bcc,t.comments')
+            ->andWhere('t.id = :val')
+            ->setParameter('val', $id)
+            ->getQuery()
+            ->getResult()
+            ;
+
+    }
+
 }

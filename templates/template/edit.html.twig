@@ -51,12 +51,17 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
             $(".persist-preview").attr('type','button');
             $("button[name='btn_preview']").click(function () {
                 $(".modal").show();
+                var emailBody = $(".emailBody").val();
+                var patt = new RegExp(/\{\{[a-zA-z0-9 _ *?<=+->,.]*\}\}/g);
+                // var res = patt.test(emailBody);
+                emailBody = emailBody.replace(patt,"");
+                $(".modal-body").html(emailBody);
 
             });
             $(".close").click(function () {

@@ -20,7 +20,8 @@ class EmailTemplateRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return EmailTemplate[]
+     * @param int $status
+     *  @return EmailTemplate[]
      */
 
     public function getActiveTemplateList($status = EmailTemplate::IS_ACTIVE)

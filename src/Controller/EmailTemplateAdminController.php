@@ -80,7 +80,7 @@ class EmailTemplateAdminController extends CRUDController
 //                if($previewObj instanceof EmailTemplate)
 //                    UtilsPdfHelper::previewPdf($previewObj->getContent(),$previewObj->getType());
 //                else
-                    $this->addFlash('sonata_flash_error', "Something went wrong to create PDF");
+                    $this->addFlash('sonata_flash_error', "Something went wrong to create master email template");
             }
         }
         $formView = $form->createView();
@@ -150,14 +150,14 @@ class EmailTemplateAdminController extends CRUDController
                             $existingObject = $this->admin->update($submittedObject);
                             if ($this->isXmlHttpRequest())
                                 return $this->handleXmlHttpRequestSuccessResponse($request, $existingObject);
-                            $this->addFlash('sonata_flash_success', "template updated succes");
+                            $this->addFlash('sonata_flash_success', "template updated successfully");
                             return $this->redirectTo($existingObject);
                         } catch (ModelManagerException $e) {
                             $this->handleModelManagerException($e);
 
                             $isFormValid = false;
                         } catch (LockException $e) {
-                            $this->addFlash('sonata_flash_error', "can not edit the  template");
+                            $this->addFlash('sonata_flash_error', "can not edit the template");
                         }
                     }
                 }
@@ -172,7 +172,7 @@ class EmailTemplateAdminController extends CRUDController
 //                if($previewObj instanceof EmailTemplate)
 //                    UtilsPdfHelper::previewPdf($previewObj->getContent(), $previewObj->getType());
 //                else
-                    $this->addFlash('sonata_flash_error', "Something went wrong to create PDF");
+                    $this->addFlash('sonata_flash_error', "Something went wrong to update master email template");
             }
         }
         $formView = $form->createView();

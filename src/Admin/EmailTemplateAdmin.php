@@ -46,7 +46,7 @@ class EmailTemplateAdmin extends AbstractAdmin
             ->add('subject', TextType::class,
                 array("label"=>"Email Subject","required"=>false, 'attr' => ['maxlength' => 255]))
             ->add('comments', TextType::class,
-                array("label"=>"Comments","required"=>false, 'attr' => ['maxlength' => 255]))
+                array("label"=>"Description","required"=>false, 'attr' => ['maxlength' => 255]))
             ->add('content', TextareaType::class,
                 array("label"=>"Email Body", "required"=>false, 'attr' => ['class' => 'tinymce emailBody','placeholder'=> 'HTML format']))
             ->add('status', CheckboxType::class,
